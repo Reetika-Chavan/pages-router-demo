@@ -10,6 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await res.revalidate(`/posts-with-odr/${id}`)
 
+
     return res.status(200).json({
       revalidated: true,
       postId: id,
