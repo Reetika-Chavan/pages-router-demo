@@ -8,18 +8,18 @@ export const Stack = contentstack.Stack({
   live_preview: {
     enable: true,
     management_token: process.env.NEXT_PUBLIC_CONTENTSTACK_MANAGEMENT_TOKEN!,
-    host: process.env.NEXT_PUBLIC_CONTENTSTACK_PREVIEW_HOST!, // e.g. dev11-rest-preview.csnonprod.com
+    host: process.env.NEXT_PUBLIC_CONTENTSTACK_PREVIEW_HOST!, 
   },
 })
 
-// ✅ Set host for dev11 CDN separately
-Stack.setHost(process.env.NEXT_PUBLIC_CONTENTSTACK_LIVE_PREVIEW_HOST!) // e.g. dev11-cdn.csnonprod.com
+// host for dev11 CDN 
+Stack.setHost(process.env.NEXT_PUBLIC_CONTENTSTACK_LIVE_PREVIEW_HOST!) 
 
 ContentstackLivePreview.init({
   enable: true,
   stackSdk: Stack,
   ssr: true,
   clientUrlParams: {
-    host: process.env.NEXT_PUBLIC_CONTENTSTACK_APP_HOST!, // dev11-cdn.csnonprod.com or your Launch site
+    host: process.env.NEXT_PUBLIC_CONTENTSTACK_APP_HOST!, 
   },
 })

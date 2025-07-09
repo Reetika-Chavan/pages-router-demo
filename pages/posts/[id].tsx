@@ -1,5 +1,3 @@
-// pages/posts/[id].tsx
-
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { fetchPostById } from '../../lib/fetchPost'
@@ -33,13 +31,16 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async (context) => 
   try {
     const post = await fetchPostById(id)
 
+    console.log(`Regenerating page for Post ID: ${id} at ${post.timestamp}`)
+
     return {
       props: {
         post,
       },
       revalidate: 10,
     }
-  } catch {
+  } catch (error) {
+    console.error(`Error fetching post ${id}:`, error)
     return {
       notFound: true,
     }
@@ -58,9 +59,19 @@ export default function PostPage({ post }: PostPageProps) {
       <h1>📝 Post #{post.id}</h1>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
-      <p style={{ marginTop: '1rem', color: 'gray' }}>
+      <div
+        style={{
+          marginTop: '2rem',
+          padding: '1rem',
+          backgroundColor: '#f3f4f6',
+          borderRadius: '8px',
+          fontSize: '0.9rem',
+          color: '#555',
+        }}
+      >
         <strong>Timestamp:</strong> {post.timestamp}
-      </p>
+        <br />
+      </div>
     </div>
   )
 }

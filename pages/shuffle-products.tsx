@@ -44,7 +44,7 @@ export default function ShuffleProducts({ product }: ShuffleProps) {
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-        🔀 Random Product
+        Random Product
       </h1>
 
       <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem', maxWidth: '500px' }}>

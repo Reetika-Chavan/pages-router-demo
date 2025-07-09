@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
       props: {
         post,
       },
-      revalidate: 40, // CDN cache for 40s
+      revalidate: 40, 
     }
   } catch {
     return {

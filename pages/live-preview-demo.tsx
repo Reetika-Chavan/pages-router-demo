@@ -24,7 +24,7 @@ export default function LivePreviewDemo({ initialQuote }: Props) {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>🎤 Live Preview Demo</h1>
+      <h1>Live Preview Demo</h1>
       <p style={{ fontSize: '1.5rem', marginTop: '1rem' }}>{quote}</p>
     </div>
   )

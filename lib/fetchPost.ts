@@ -7,7 +7,6 @@ export async function fetchPostById(id: string) {
 
   const post = await res.json()
 
-  // ISO timestamp
   return {
     ...post,
     timestamp: new Date().toISOString(),
