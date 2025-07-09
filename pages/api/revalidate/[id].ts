@@ -1,15 +1,17 @@
-
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query
-
   if (!id || Array.isArray(id)) {
     return res.status(400).json({ error: 'Invalid ID' })
   }
 
   try {
     await res.revalidate(`/posts-with-odr/${id}`)
+
+    // Set headers before sending response
+    res.setHeader('Cache-Control', 's-maxage=40, stale-while-revalidate')
+    res.setHeader('X-Revalidate-Path', `/posts-with-odr/${id}`)
 
     return res.status(200).json({
       revalidated: true,
