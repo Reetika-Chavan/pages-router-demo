@@ -30,7 +30,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
       props: {
         post,
       },
-      revalidate: 40,
     }
   } catch {
     return {
@@ -38,6 +37,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     }
   }
 }
+
 
 export default function PostWithODR({ post }: Props) {
   const router = useRouter()
