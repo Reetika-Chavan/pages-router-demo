@@ -53,15 +53,6 @@ export default function PostWithODR({ post }: Props) {
       <p style={{ marginTop: '1rem', color: 'gray' }}>
         <strong>Timestamp:</strong> {post.timestamp}
       </p>
-      <button
-  onClick={async () => {
-    await fetch(`/api/revalidate/${post.id}`)
-    window.location.href = `/posts-with-odr/${post.id}?refresh=${Date.now()}`
-  }}
->
-  🔄 Revalidate Page
-</button>
-
     </div>
   )
 }

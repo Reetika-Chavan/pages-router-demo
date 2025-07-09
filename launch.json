@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Cache-Control": "public, s-maxage=40, stale-while-revalidate"
+      }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/posts-with-odr/:id",
+      "destination": "/posts-with-odr/[id]"
+    }
+  ]
+}
