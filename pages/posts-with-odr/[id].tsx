@@ -18,25 +18,22 @@ type Props = {
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { id } = context.params as { id: string }
 
-  try {
-    const post = await fetchPostById(id)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/posts/${id}`)
+  if (!res.ok) {
+    return { notFound: true }
+  }
 
-    console.log(`🧪 Re-rendered /posts-with-odr/${id} at`, post.timestamp)
+  const post = await res.json()
 
-    context.res.setHeader(
-      'Cache-Control',
-      'public, max-age=0, s-maxage=40, stale-while-revalidate'
-    )
+  context.res.setHeader(
+    'Cache-Control',
+    'public, max-age=0, s-maxage=40, stale-while-revalidate'
+  )
 
-    return {
-      props: {
-        post,
-      },
-    }
-  } catch {
-    return {
-      notFound: true,
-    }
+  return {
+    props: {
+      post,
+    },
   }
 }
 
