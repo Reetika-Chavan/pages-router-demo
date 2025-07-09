@@ -1,7 +1,8 @@
-
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  res.setHeader('Cache-Control', 'no-store')
+
   const { id } = req.query
 
   if (!id || Array.isArray(id)) {
