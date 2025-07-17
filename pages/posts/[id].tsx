@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import { fetchPostById } from '../../lib/fetchPost'
+import { fetchPostApi } from '../../lib/fetchPostApi' 
 
 type Post = {
   userId: number
@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async (context) => 
   const { id } = context.params as { id: string }
 
   try {
-    const post = await fetchPostById(id)
+    const post = await fetchPostApi(id) 
 
     console.log(`Regenerating page for Post ID: ${id} at ${post.timestamp}`)
 
@@ -56,7 +56,7 @@ export default function PostPage({ post }: PostPageProps) {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
-      <h1>📝 Post #{post.id}</h1>
+      <h1>Post #{post.id}</h1>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <div

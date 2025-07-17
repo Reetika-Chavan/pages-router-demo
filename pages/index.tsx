@@ -13,7 +13,7 @@ type HomeProps = {
 }
 
 
-// Static data fetch at build time
+// static data fetch
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   try {
     const res = await fetch('https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies')

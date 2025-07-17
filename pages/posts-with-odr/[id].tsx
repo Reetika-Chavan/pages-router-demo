@@ -1,4 +1,3 @@
-// pages/posts-with-odr/[id].tsx
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { fetchPostById } from '../../lib/fetchPost'

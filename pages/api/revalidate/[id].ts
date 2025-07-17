@@ -1,4 +1,4 @@
-// pages/api/revalidate/[id].ts
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id }) // Automate will use {{data.id}} in the path
+      body: JSON.stringify({ id }) 
     })
 
     const resultText = await response.text()
