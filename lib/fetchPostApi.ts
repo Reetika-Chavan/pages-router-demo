@@ -1,6 +1,9 @@
 export async function fetchPostApi(id: string) {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const isBuildTime = typeof window === 'undefined' && process.env.NEXT_PHASE === 'phase-production-build'
+
+  const baseUrl = isBuildTime
+    ? 'http://localhost:3000' 
+    : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
   const res = await fetch(`${baseUrl}/api/posts/${id}`)
 
