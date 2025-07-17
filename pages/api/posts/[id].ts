@@ -10,8 +10,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const post = await fetchPostById(id)
+
+    res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
+
+    console.log(`✅ API: Served post ${id} at ${post.timestamp}`)
+
     return res.status(200).json(post)
   } catch (error) {
+    console.error(`❌ API error for post ${id}:`, error)
     return res.status(500).json({ error: 'Failed to fetch post' })
   }
 }
