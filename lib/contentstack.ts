@@ -7,7 +7,7 @@ export const Stack = contentstack.Stack({
   environment: process.env.NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT!,
   live_preview: {
     enable: true,
-    management_token: process.env.NEXT_PUBLIC_CONTENTSTACK_MANAGEMENT_TOKEN!,
+    preview_token: process.env.NEXT_PUBLIC_CONTENTSTACK_PREVIEW_TOKEN!,
     host: process.env.NEXT_PUBLIC_CONTENTSTACK_PREVIEW_HOST!, 
   },
   fetchOptions: {
