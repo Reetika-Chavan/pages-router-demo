@@ -10,6 +10,13 @@ export const Stack = contentstack.Stack({
     management_token: process.env.NEXT_PUBLIC_CONTENTSTACK_MANAGEMENT_TOKEN!,
     host: process.env.NEXT_PUBLIC_CONTENTSTACK_PREVIEW_HOST!, 
   },
+  fetchOptions: {
+    debug: true,
+    logHandler: (level, message) => {
+      console.log(`[Contentstack SDK][${level}]`, message);
+    },
+    timeout: 30000 // Set a custom timeout if needed
+  }
 })
 
 // host for dev11 CDN 
