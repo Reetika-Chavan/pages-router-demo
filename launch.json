@@ -1,11 +1,10 @@
 {
-  "redirects": [
-    {
-      "source": "/live-preview-demo/:postId(.*)",
-
-      "destination": "/shuffle-products/:postId?",
-
-      "statusCode": 301
-    }
-  ]
-}
+    "redirects": [
+      {
+        "source": "/live-preview-demo/:postId(.*)",
+        "destination": "/shuffle-products/:postId?utm_source=:utm_source&utm_medium=:utm_medium&utm_campaign=:utm_campaign&utm_term=:utm_term&utm_content=:utm_content",
+        "statusCode": 301
+      }
+    ]
+  }
+  
