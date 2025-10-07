@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    {
+      "source": "/live-preview-demo/:postId(.*)",
+
+      "destination": "/shuffle-products/:postId",
+
+      "statusCode": 301
+    }
+  ]
+}
