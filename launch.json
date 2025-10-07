@@ -3,7 +3,7 @@
     {
       "source": "/live-preview-demo/:postId(.*)",
 
-      "destination": "/shuffle-products/:postId",
+      "destination": "/shuffle-products/:postId?",
 
       "statusCode": 301
     }
