@@ -1,14 +1,13 @@
 import { processRedirects } from "../lib/redirects.js";
 
+export const config = {
+  runtime: "edge",
+  matcher: ["/live-preview-demo/:path*"],
+};
+
 export default async function handler(request) {
   const url = new URL(request.url);
   const fullUrl = url.pathname + url.search;
-
-  // Only process redirects for live-preview-demo routes
-  if (!fullUrl.startsWith("/live-preview-demo")) {
-    // Let other requests pass through by returning null
-    return null;
-  }
 
   // Process redirects
   const redirect = processRedirects(fullUrl);
